@@ -1,0 +1,65 @@
+@use '../../mixins' as *;
+
+/*
+ *
+ *  USER SETTINGS AUTHORIZED APPS
+ *
+ */
+
+%formNotice {
+    margin-bottom: 32px;
+    padding: 0;
+
+    %formNoticeTitle {
+        @include card-format--header(false, true);
+
+        + %formNoticeBody {
+            @include card-format--body(true);
+        }
+    }
+
+    &%settingsCard {
+        margin-top: 16px;
+    }
+}
+
+%formNoticeBody {
+    padding: 16px;
+}
+
+%authedApp {
+    margin-bottom: 16px;
+    padding: 0;
+
+    %marginBottom20 {
+        @include card-format--header(false, true);
+
+        %textSMSemibold {
+            font-size: inherit;
+            font-weight: inherit;
+            color: var(--card-header-text-color);
+        }
+
+        + div {
+            padding-top: 0;
+        }
+    }
+
+    div:not([class]) {
+        padding: 0 16px;
+    }
+
+    %marginTop20 {
+        margin-top: 0;
+        padding: 16px;
+    }
+
+    %button {
+        font-size: 0.75em;
+    }
+}
+
+%authedAppTwoWayWarning {
+    margin-top: 8px;
+    padding: 0 16px 16px;
+}
