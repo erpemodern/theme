@@ -1,0 +1,363 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *	USER POPOUT
+ *
+ */
+
+%userProfileColors {
+	--profile-gradient-primary-color: var(--popout-color);
+	--profile-gradient-secondary-color: var(--popout-color);
+	--profile-avatar-border-color: var(--popout-color);
+	--profile-body-background-color: var(--popout-color-alt);
+	--profile-gradient-button-color: hsl(var(--accent-hsl--material-you));
+	--profile-gradient-button-text-color: var(--accent-text-color--material-you);
+}
+
+%userProfileOuterThemed {
+	--profile-gradient-button-color: hsl(var(--accent-hsl--material-you));
+	--profile-gradient-button-text-color: hsl(0,calc(var(--saturation-factor, 1)*0%),100%);
+
+	%userProfileBanner {
+		border-radius: calc(var(--popout-radius-big) - 4px);
+	}
+
+	%userProfileNoteTextArea,
+	%inputWrapper %input {
+		--input-color: var(--profile-body-background-color) !important;
+	}
+
+	%buttonFilled {
+		--button-background: var(--profile-gradient-button-color);
+        --button-text-color: var(--white-500);
+        --accent-button-action: var(--white-500);
+	}
+
+	%markup a {
+		color: var(--profile-gradient-button-color);
+	}
+
+	%flowerStar {
+	    path {
+	        fill: var(--profile-gradient-button-color);
+	    }
+	}
+
+	%flowerStarChild {
+	    path {
+	        fill: var(--white-500);
+	    }
+	}
+}
+
+%userProfileOuter {
+	border-radius: var(--popout-radius-big);
+}
+
+%userProfileInner {
+	--input-color: var(--input-color-alt);
+
+	border-radius: calc(var(--popout-radius-big) - 4px);
+
+	&:before {
+		border-radius: inherit;
+	}
+
+	%avatarWrapper {
+		circle {
+			fill: var(--profile-avatar-border-color);
+		}
+	}
+
+	%inputWrapper {
+		border-bottom: none !important;
+
+		&.quickMessage-3jDbBs {
+			margin-top: 0;
+		}
+
+		&:before,
+		&:after {
+			display: none;
+		}
+
+		%input {
+			padding: 0 12px;
+			background-color: var(--input-color);
+			border-radius: var(--input-radius);
+
+			&::-webkit-input-placeholder {
+				font-family: var(--app-font);
+				color: var(--input-placeholder-color);
+			}
+		}
+	}
+}
+
+%userProfileScroller {
+    --scrollbar-thin-width: 0;
+
+    padding-right: 12px !important;
+
+    &:hover {
+        --scrollbar-thin-width: 6px;
+        padding-right: calc(12px - var(--scrollbar-thin-width)) !important;
+    }
+
+	%userProfileSection {
+        &:first-of-type {
+            padding-top: 0;
+        }
+    }
+}
+
+%userProfileNitroUpsellWrapper,
+%userProfileBannerNitroUpsell,
+%userProfileOverlayBackground {
+	border-radius: calc(var(--popout-radius-big) - 4px);
+}
+
+%userProfileModalNameTag {
+	%userProfileUsername,
+	%userProfileDiscriminator {
+		font-size: 18px;
+		font-weight: 400;
+	}
+}
+
+%userProfileBanner {
+	border-radius: var(--popout-radius-big);
+}
+
+%userProfileBadges {
+	border-radius: 15px;
+}
+
+%userProfileUserTagNoNickname span,
+%userProfileNickname {
+	font-size: 22px;
+	font-weight: 400;
+}
+
+%userProfileEyebrow {
+	@include remove-caps(14px);
+}
+
+%userProfileGameIcon {
+	border-radius: 50%;
+}
+
+%userProfileAssetsLargeImage {
+	border-radius: var(--card-radius-big);
+
+	&%userProfileAssetsLargeImageSpotify {
+		border-radius: 50%;
+	}
+}
+
+%buttonColor {
+	--button-background: var(--profile-gradient-button-color);
+	--button-text-color: var(--profile-gradient-button-text-color);
+}
+
+%userProfileSection {
+	padding-top: 16px;
+}
+
+%userProfileUsernameSection {
+    padding: 12px 12px 16px;
+}
+
+%userProfileCustomStatusSection {
+    padding-top: 0;
+    padding-bottom: 16px;
+}
+
+%userProfileDivider {
+	display: none;
+}
+
+%userProfileEffectsInner {
+    border-radius: var(--popout-radius-big);
+}
+
+%userProfileAvatarDecorationUpsellWrapper {
+    padding: 4px;
+    border-radius: var(--popout-radius-big);
+}
+
+%userProfileAvatarDecorationUpsellWrapperInner {
+    background-color: var(--popout-color);
+    border-radius: calc(var(--popout-radius-big) - 4px);
+}
+
+/* USER POPOUT -> STATUS AREA */
+
+%accountProfilePopoutWrapper {
+	animation: bottom-pop-out 400ms var(--default-animation);
+}
+
+body:active %accountProfilePopoutWrapper:not(:active) {
+	opacity: 0;
+	transition: 150ms ease all;
+}
+
+%userProfileStatusMenu {
+	background-color: transparent;
+	box-shadow: none;
+	animation: none;
+
+	%scroller {
+		padding-right: 0 !important;
+
+		&::-webkit-scrollbar {
+			--scrollbar-width: 0;
+		}
+
+		%menuPopoutSeparator {
+			width: calc(100% - 24px);
+			margin: 8px 12px;
+		}
+	}
+
+	%menuPopoutItem {
+		&[id*="account-divider-"] {
+			min-height: unset;
+			padding: 0;
+
+			%menuPopoutDivider {
+				margin: 8px 12px;
+			}
+		}
+	}
+
+	%menuPopoutSeparator {
+		width: calc(100% - 24px);
+		margin: 8px 12px;
+		background-color: var(--separator-color);
+	}
+
+	%contextMenuItemSubMenuAlt {
+		%menuPopoutSeparator {
+			width: 100%;
+			margin: 8px 0;
+		}
+	}
+}
+
+%userProfileConnectionsContainer {
+    background-color: var(--popout-color);
+    border-radius: calc(var(--popout-radius-big) - 4px);
+    border: none;
+
+    %userProfileConnections {
+        transition: var(--default-time) var(--default-animation) background-color;
+
+        &:hover {
+            background-color: var(--menu-item-hover);
+        }
+    }
+}
+
+body:active %userProfileStatusMenu:not(:active) {
+	opacity: 1;
+}
+
+/* USER POPOUT -> ROLES */
+
+%role {
+	position: relative;
+	min-width: 28px;
+	height: 28px;
+	gap: 6px;
+	padding: 0 12px 0 6px;
+	background-color: transparent;
+	border-radius: 8px;
+	border: 1px solid var(--card-border-color);
+
+	%roleCircle,
+	%permCircle {
+		width: 16px;
+		height: 16px;
+		margin: 0;
+		border-radius: 8px;
+	}
+
+	%permCircle {
+		margin-right: 0 !important;
+	}
+
+	%roleRemoveIcon {
+		display: block;
+		width: 16px;
+		height: 16px;
+		top: 0;
+		left: 0;
+		margin: auto;
+		transition: var(--default-time) var(--default-animation) opacity, var(--default-time) var(--default-animation) transform;
+		opacity: 0;
+		cursor: pointer;
+	}
+
+	&:hover {
+		%roleRemoveIcon {
+			opacity: 1;
+		}
+	}
+
+	%roleName,
+	%roleIcon {
+		margin-right: 0;
+	}
+
+	&%roleAddButton {
+		padding: 0 6px;
+		background-color: transparent !important;
+
+		%roleAddButtonIcon {
+			width: 18px;
+			height: 18px;
+		}
+	}
+}
+
+%roleFlowerStar {
+    display: flex;
+    width: 16px !important;
+    height: 16px !important;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+
+    %roleLinkIcon {
+        margin: 0 !important;
+    }
+}
+
+/* USER POPOUT -> NOTE */
+
+%userProfileNote {
+	margin: 0;
+}
+
+%userProfileInner {
+	%userProfileNoteTextArea {
+		padding: 6px 12px;
+		border-radius: var(--input-radius);
+		box-shadow: none !important;
+		font-size: 14px;
+
+		&:focus {
+			background-color: var(--input-color) !important;
+		}
+	}
+}
+
+%userProfileMessageInputContainer {
+	border: none;
+
+	%input {
+		box-shadow: none !important;
+	}
+}

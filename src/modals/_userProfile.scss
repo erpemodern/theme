@@ -1,0 +1,100 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *	USER PROFILE
+ *
+ */
+
+%userProfileModalInner {
+	%userProfileUsername,
+	%userProfileDiscimBase {
+		font-size: 22px;
+		font-weight: 400;
+	}
+}
+
+%userProfileModalBadgeList {
+	height: var(--button-height);
+	padding: 0 6px;
+	background-color: var(--profile-body-background-color);
+	border-radius: var(--button-radius);
+}
+
+%userProfileModalTabBarContainer {
+	margin: 16px 0 0;
+	padding: 0 12px;
+	background-color: transparent !important;
+	border-bottom: 1px solid var(--background-modifier-accent) !important;
+	box-shadow: none !important;
+
+	%userProfileModalTabBar {
+		gap: 24px;
+	}
+
+	%tabBarItem {
+		height: 36px;
+		border-bottom: none;
+
+		&%tabBarItemSelected {
+			@include tab-border(90%);
+		}
+	}
+}
+
+%userProfileModalHeaderContainer {
+	padding: 16px 16px 0;
+}
+
+%userProfileModalHeaderDivider {
+	margin: 16px 16px 0;
+}
+
+%userProfileModalInfoScroller {
+	padding: 0 calc(16px - var(--scrollbar-thin-width)) 0 16px !important;
+}
+
+%activityHeaderText {
+	@include remove-caps(14px);
+}
+
+%userProfileModalConnectedAccounts {
+	margin-top: -16px;
+	border-top: none !important;
+
+	%userProfileModalConnectedAccount {
+		margin-top: 16px;
+		background-color: var(--card-color-outlined);
+		border-radius: var(--card-radius);
+		border: 1px solid var(--card-border-color);
+		transition: var(--default-time) var(--default-animation) background-color;
+	}
+}
+
+%userProfileModalNote {
+	margin: 0;
+
+	textarea {
+		padding: 6px 12px;
+		border-radius: var(--input-radius);
+
+		&:focus {
+			background-color: transparent;
+		}
+	}
+}
+
+/* USER PROFILE -> LISTS */
+
+%listRow {
+	border-radius: var(--popout-radius);
+	transition: var(--default-time) var(--default-animation) background-color;
+
+	&:hover {
+		background-color: var(--menu-item-hover);
+	}
+}
+
+%listRowIconActiveMedium {
+	border-radius: 50%;
+}
