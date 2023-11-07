@@ -11756,7 +11756,7 @@ body:active .menu__5cf7f:not(:active) {
 .container__3f4ea {
   margin-top: 0;
   padding-left: 16px;
-  padding-right: 16px;
+  padding-right: 12px;
   border-radius: var(--card-radius-big);
   transition: var(--default-time) var(--default-animation) background-color;
 }
