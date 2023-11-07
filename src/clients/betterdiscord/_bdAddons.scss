@@ -1,0 +1,208 @@
+@use '../../mixins' as *;
+
+/*
+ *
+ *  BETTERDISCORD ADDONS
+ *
+ */
+
+%bdSettingsTitle {
+	color: var(--header-primary);
+}
+
+%bdButton {
+	background-color: hsl(var(--accent-hsl--material-you)) !important;
+	border-radius: var(--button-radius);
+	color: var(--accent-text-color--material-you);
+
+	&%bdButtonDanger {
+		background-color: hsl(var(--alert-hsl)) !important;
+		color: var(--alert-text-color);
+	}
+}
+
+%bdAddonSearchBar {
+	padding: 0 8px;
+	background-color: var(--input-color);
+	border-radius: 13px;
+
+	%bdAddonSearchInput {
+		padding: 0;
+		line-height: 26px;
+		color: var(--text-normal);
+
+		&::-webkit-input-placeholder {
+			font-family: var(--app-font);
+		}
+	}
+}
+
+%bdSelectLabel {
+	line-height: 26px;
+}
+
+%bdSelect {
+	line-height: 26px;
+
+	&%bdSelectTransparent {
+		gap: 4px;
+	}
+
+	%bdSelectValue {
+		padding-left: 0;
+	}
+
+	%bdSelectArrow {
+		height: 26px !important;
+		margin-left: 0;
+	}
+
+	%bdSelectOptions {
+		padding: 8px 0;
+		background-color: var(--popout-color);
+		border-radius: var(--popout-radius);
+		border: none;
+	    box-shadow: var(--shadow-3dp);
+	    animation: opacity 100ms ease, open-context-menu 300ms var(--default-animation);
+		transform-origin: top;
+	}
+
+	%bdSelectOption {
+		min-height: 32px;
+		padding: 9px 12px;
+		line-height: 18px;
+		font-weight: 500;
+		color: var(--menu-item-text-color);
+		transition: var(--default-time) var(--default-animation) background-color;
+
+		&:hover {
+            background-color: var(--menu-item-hover);
+        }
+
+		&%bdSelectOptionSelected {
+			background-color: var(--menu-item-select);
+		}
+	}
+}
+
+%bdAddonViews {
+	%bdAddonViewsButton {
+		background-color: transparent !important;
+
+		&%bdAddonViewsButtonSelected {
+			background-color: hsl(var(--accent-hsl--material-you)) !important;
+
+			svg {
+				fill: var(--accent-text-color--material-you);
+			}
+		}
+	}
+}
+
+%bdAddonControls {
+	+ %bdAddonList {
+		margin-top: 16px;
+	}
+}
+
+%bdThemesTab {
+	%bdAddonControls {
+		&:after {
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			content: "Theme Add-ons\A\AMaterial Discord has a few add-on themes to either enhance or revert\Asome features that can be located at bit.ly/MaterialDiscordAddons.\A\A - Solid Icons\A - Old Message Bubbles\A - Material You";
+			width: 100%;
+			margin-top: 16px;
+			@include card-format(false, 16px, true);
+			color: var(--text-normal);
+			box-sizing: border-box;
+			white-space: pre;
+			word-wrap: break-word;
+			line-height: 18px;
+		}
+	}
+}
+
+%bdEmptyImageContainer {
+	margin-top: 24px;
+	max-width: unset;
+}
+
+%bdAddonList {
+	&%bdAddonListGridView {
+		column-gap: 16px;
+		row-gap: 16px;
+	}
+
+	%bdAddonCard {
+		margin-bottom: 16px;
+	}
+}
+
+%bdAddonCard {
+	@include card-format(true, 0, true);
+
+	%bdAddonCardHeader {
+		@include card-format--header(false, true);
+
+		%bdAddonCardLink {
+			color: hsl(var(--accent-hsl));
+		}
+
+		%bdAddonCardHeaderMeta {
+			display: block;
+			font-size: 12px;
+		}
+	}
+
+	%bdAddonCardDescriptionWrap {
+		padding: 0 16px;
+	}
+
+	%bdAddonCardDescription {
+		padding: 0;
+	}
+
+	%bdAddonCardFooter {
+		background-color: transparent;
+	}
+
+	%bdAddonCardControls {
+		background-color: transparent;
+		border-radius: 14px;
+		overflow: hidden;
+
+		%bdButton {
+			padding: 3px 8px;
+			background-color: var(--card-button-color) !important;
+			color: var(--text-normal);
+
+			&:hover {
+				background-color: var(--card-button-color-hover) !important;
+			}
+
+			svg {
+				fill: var(--text-normal);
+			}
+		}
+	}
+}
+
+%bdAddonCardDescriptionWrap %bdAddonBanner {
+    margin-bottom: 16px;
+    padding: 8px;
+    border-radius: calc(var(--card-radius-big) / 1.5);
+    border: none;
+	color: var(--text-normal);
+}
+
+%bdAddonBanner {
+    &%bdAddonBannerDanger {
+        background-color: hsla(var(--alert-hsl),0.3);
+
+        %bdAddonBannerIcon {
+            fill: hsl(var(--alert-hsl));
+        }
+    }
+}
