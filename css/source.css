@@ -303,7 +303,7 @@ body,
   font-size: 0.9em;
   color: var(--text-normal);
 }
-.wordmark__0d178.wordmarkWindows__05c46:before, .wordmark__0d178.wordmarkWindows__05c46:after {
+.wordmark__0d178.wordmarkWindows__05c46:before {
   position: relative;
   width: auto;
   height: 22px;
